@@ -1,11 +1,48 @@
-<html lang="en">
+<html lang="pr-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta author="Robert">
+    <title>Pagina inicial</title>
+    <!estilos no mesmo arquivo> 
+    <style>
+        h2{
+            font-size: 20px;
+            color: blue;
+        }
+        .deslocar-direita{
+            margin-left: 50px;
+            background-color: blue;
+            color: white;
+        }
+        #sem-margem{
+            margin-left: 0px;
+        }
+    </style>
 </head>
 <body>
+    <p>Paragrafo 1</p>
+    <p>Paragrafo 2</p>
+
+    <div class="deslocar-direita"> <! divisor de conteudo -> 
+        div 1
+        <p>Paragrafo 1</p>
+        <p>Paragrafo 2</p>
+    </div>
     
+    <! ID utiliza no css com # para mudar somente essa linha  -> 
+    <div id="sem-margem" class="deslocar-direita"> 
+        div 2
+        <p>Paragrafo 1</p>
+        <p>Paragrafo 2</p>
+    </div>    
+
+    <!estilos em linha - não recomendavel -> 
+    <h1 style="font-size:10px ; color: red; text-transform: uppercase;">Olá usuário</h1>  
+
+    <h2>Tag H2</h2>
+    <h2 style="color: violet;">Tag H2.2</h2>
+    <h3>Tag H3</h3>
 </body>
 </html>
