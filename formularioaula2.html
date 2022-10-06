@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML Base</title>
 </head>
+
 <body>
     <h2>Exemplo de formulario</h2>
 
@@ -14,5 +16,44 @@
         <input type="text" name="q" id="txtbusca">
         <input type="submit" value="ok">
     </form>
+
+    <hr>
+
+    <form action="#" method="post" target="_parent">
+        <fieldset> <!--fieldset = caixa de divisão -->
+            <legend>Dados Pessoais</legend> <!--legend = apareça no label da caixafieldset -->
+            <label for="txtemail">E-mail</label>
+            <input type="email" id="txtemail" required maxlength="5" placeholder="Digite o seu e-mail">
+            <br>
+            <label for="txtnumfilhos">Número de filhos</label>
+            <input type="number" id="txtnumfilhos" min="0" max="10" step="2">
+            <br>
+            <label for="txtdtnascimento">Data Nascimento</label>
+            <input type="date" id="txtdtnascimento" min="01-01-1986" max="01-01-2050" >
+            <br>
+            <p>Sexo:</p>
+            <label>
+                <input type="radio" value="M" name="sexo">
+                Masculino <!--incluir a palavra dentro do label com imput para clicar na palavra e selecionar -->
+            </label>
+            <br>
+            <label>
+                <input type="radio" value="F" name="sexo">
+                Feminino
+            </label>            
+
+        </fieldset>
+        <fieldset>
+            <legend>Areas de interesse</legend>
+
+        </fieldset>
+        <fieldset>
+            <legend>Mensagem</legend>
+
+        </fieldset>
+
+        <input type="submit" value="ok">
+    </form>
 </body>
+
 </html>
