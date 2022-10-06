@@ -1,0 +1,14 @@
+p{
+    background-color: yellow;
+    font-size: 20px;
+}
+.paragrafoback{
+    background-color: bisque;
+}
+.paragrafofont{
+    font-size: 15px;
+}
+.paragrafoborder{
+    border-bottom: 5px;
+    border-style: dotted;
+}
