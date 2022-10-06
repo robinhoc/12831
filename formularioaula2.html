@@ -40,16 +40,34 @@
             <label>
                 <input type="radio" value="F" name="sexo">
                 Feminino
-            </label>            
+            </label>     
+            <br>
+            <input type="hidden" value="campo invisivel"><!--hidden =  não visivel na tela -->
 
+            <label for="txtestado">Estados</label>
+            <select name="estado" id="txtestado">
+                <option value="0">Selecione</option>
+                <option value="SP">São Paulo</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="RS">Rio Grande do Sul</option>
+            </select>
         </fieldset>
         <fieldset>
             <legend>Areas de interesse</legend>
+            <label>
+                <input type="checkbox" name="HTML" value="HTML">HTML
+            </label>
+            <label>
+                <input type="checkbox" name="CSS" value="CSS">CSS
+            </label>
+            <label>
+                <input type="checkbox" name="area" value="JS">JavaScript
+            </label>                
 
         </fieldset>
         <fieldset>
             <legend>Mensagem</legend>
-
+            <textarea name="msg" required cols="30" rows="10" placeholder="Sua mensagem aqui"></textarea>
         </fieldset>
 
         <input type="submit" value="ok">
