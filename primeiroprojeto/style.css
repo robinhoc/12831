@@ -1,0 +1,87 @@
+.header{
+    background-color: blueviolet;
+    max-width: 400px;
+    border: 2px;
+    border-color: white;
+    border-style: solid;
+    color: white;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+html{
+    background-color: cornflowerblue;
+}
+
+.container{
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.item{
+    margin: 10px;
+    text-align: center;
+    font-size: 1.5em;
+    color: white;
+    border: 2px;
+    border-color: aliceblue;
+    border-style: solid;
+    padding: 5px;
+}
+.flex{
+    display: flex;
+}
+.flex-wrap{
+    flex-wrap: wrap;
+}
+.flex-item-1{
+    flex: 1;
+}
+.style-link{
+    color: white;
+    font-style: normal;
+}
+
+input{
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+label{
+    color: white;
+    font-size: 10;
+    font-style: normal;
+    font-weight: bold;
+}
+
+.style-texto{
+    color: white;
+    font-size: 10;
+    font-style: normal;
+    font-weight: bold;    
+}
+.style-button-submit{
+    background-color: #4CAF50; 
+    border: 2px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    border-style: solid;
+}
+.style-button-back{
+    background-color: #71abd1; 
+    border: 2px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    border-style: solid;
+}
