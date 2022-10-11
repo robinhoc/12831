@@ -11,21 +11,23 @@
     var nr1 = parseInt( prompt('Digite um numero'))
     
     function operacao(valor){
+        var resultado = ''
+        var nr2 = parseInt( prompt('Digite outro numero'))
+
         switch (valor) {
-            case '+':
-                var nr2 = parseInt( prompt('Digite outro numero'))
-                var resultadooperacao = document.getElementById('resultado')
-                resultadooperacao.innerHTML = 'a soma é: ' + (nr1 + nr2)
+            case '+':                
+                resultado = 'Resultado: ' + nr1 + ' + ' +nr2 + ' = ' + (nr1 + nr2)
                 break;
             case '-':
-                var nr2 = parseInt( prompt('Digite outro numero'))
-                var resultadooperacao = document.getElementById('resultado')
-                resultadooperacao.innerHTML = 'a subitração é: ' + (nr1 - nr2)                
+                resultado = 'Resultado: ' + nr1 + ' - ' +nr2 + ' = ' + (nr1 - nr2)           
                 break;                
         
             default:
                 break;
         }
+
+        var elementohtml = document.getElementById('resultado')
+        elementohtml.innerHTML = resultado
     }
 </script>
 
