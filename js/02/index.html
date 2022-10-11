@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,11 +14,13 @@
         switch (valor) {
             case '+':
                 var nr2 = parseInt( prompt('Digite outro numero'))
-                alert('a soma é: ' + (nr1 + nr2))
+                var resultadooperacao = document.getElementById('resultado')
+                resultadooperacao.innerHTML = 'a soma é: ' + (nr1 + nr2)
                 break;
             case '-':
                 var nr2 = parseInt( prompt('Digite outro numero'))
-                alert('a subitração é: ' + (nr1 - nr2))
+                var resultadooperacao = document.getElementById('resultado')
+                resultadooperacao.innerHTML = 'a subitração é: ' + (nr1 - nr2)                
                 break;                
         
             default:
@@ -29,6 +31,9 @@
 
 <body>
     <input type="button" name="soma" onclick="operacao('+')" value="+">
-    <input type="button" name="subtracao" onclick="operacao('-')" value="-">    
+    <input type="button" name="subtracao" onclick="operacao('-')" value="-">   
+    <div id="resultado">
+        Resultado
+    </div> 
 </body>
 </html>
