@@ -10,7 +10,9 @@
 
 <style>
     body {
-        background-color: aquamarine;
+        background-color: rgb(110, 163, 134);
+        margin: auto;
+        width: 80%;
     }
 
     .header{
@@ -32,6 +34,7 @@
         border-style: solid;
         padding: 3px;
         float:left;
+        background-color: beige;
     }
 
     .flex {
@@ -45,6 +48,10 @@
     .flex-item-1 {
         flex: 1;
     }
+
+    .labelstyle{
+        background-color: rgb(184, 183, 163);
+    }
 </style>
 
 <script>
@@ -56,7 +63,7 @@
 
     for (let valortabuada = 1; valortabuada < 11; valortabuada++) {
         html += '<section class="item">'
-        html += '<p>Número '+ valortabuada +'</p>'
+        html += '<p class="labelstyle">Número '+ valortabuada +'</p>'
         html += '<hr>'
 
         for (let index = 1; index < 11; index++) {
