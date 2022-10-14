@@ -1,7 +1,6 @@
 window.onload = function () {
-
+    montarLista()
     document.getElementById('frmCadastro').addEventListener('submit', adicionarOuAlterar)
-
 }
 
 function adicionarOuAlterar(e) {
@@ -28,15 +27,17 @@ function adicionarOuAlterar(e) {
         data: new Date()
     }
 
-
-
-
     try {
 
         var contatos = []
+        var contatosLocalStorage = localStorage.getItem('contatos')
 
+        if(contatos != null){
+            contatos = JSON.parse(contatosLocalStorage)    
+        }
+
+        console.log(contatosLocalStorage)
         contatos.push(contato)
-
         localStorage.setItem('contatos', JSON.stringify(contatos))
 
     } catch (error) {
@@ -45,8 +46,50 @@ function adicionarOuAlterar(e) {
 
     }
 
+    montarLista()
 
-
+    document.getElementById('frmCadastro').reset() //limpar form
 
     e.preventDefault();
 }
+
+function montarLista(){
+    var contatosLocalStorage = localStorage.getItem('contatos')
+
+    if(contatosLocalStorage == null){
+        return;
+        contatos = JSON.parse(contatosLocalStorage)    
+    }
+
+    var contatos = []
+    contatos = JSON.parse(contatosLocalStorage)
+    var tbody = document.getElementById('tbodyResultados');
+
+    tbody.innerHTML = ''
+
+    for (let index = 0; index < contatos.length; index++) {
+        var nome = contatos[index].nome;
+        var nascimento = contatos[index].dataNascimento;
+        var sexo = contatos[index].sexo;
+        var data = contatos[index].data;
+
+        tbody.innerHTML += '<tr><td>'+ nome +'</td>'+
+        '<td>'+ nascimento +'</td>'+
+        '<td>'+ sexo +'</td>'+
+        '<td>'+ data +'</td></tr>'
+    }
+
+    /*contatos.map((contato, index) => {
+        tbody.innerHTML = 
+            '<tr id="rowTable '+ index +' ">' +
+            '<td>'+ contato.nome +'</td>'+
+            '<td>'+ contato.dataNascimento +'</td>'+
+            '<td>'+ contato.sexo +'</td>'+
+            '<td>'+ contato.data +'</td></tr>'
+    })*/
+}
+/*for(var i=0, len=localStorage.length; i<len; i++) {
+    var key = localStorage.key(i);
+    var value = localStorage[key];
+    console.log(key + " => " + value);
+}*/

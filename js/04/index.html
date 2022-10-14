@@ -8,23 +8,20 @@
     <title>Document</title>
 
     <script src="index.js"></script>
+    <link rel="stylesheet" href="index.css">
 </head>
 
-<style>
-
-</style>
-
 <body>
-
-    <div class="center-fixed">
+    <h1 class="Header">Html, JavaScript e CSS</h1>
+    <div class="container">
         <form id="frmCadastro">
             <label for="txtNome">Nome</label><br>
-            <input type="text" id="txtNome"  placeholder="Nome"><br>
+            <input type="text" id="txtNome" placeholder="Nome"><br>
 
             <label for="dtpDataNascimento">Data de Nascimento</label><br>
             <input type="date" id="dtpDataNascimento" value="1990-08-29" required>
 
-            <fieldset>
+            <fieldset class="BordaRadio">
                 <legend>Sexo</legend>
                 <input type="radio" name="genero" value="male" id="rdoMasculino" checked>
                 <label for="rdoMasculino">Masculino</label><br>
@@ -34,16 +31,32 @@
             </fieldset>
 
             <label for="txtendereco">Endereço</label><br>
-            <input type="text" id="txtendereco" placeholder="Endereço"  ><br>
+            <input type="text" id="txtendereco" placeholder="Endereço"><br>
 
             <label for="txtmsg">Sua Mensagem</label><br>
-            <input type="text" id="txtmsg" placeholder="Sua Mensagem"  ><br>            
+            <input type="text" id="txtmsg" placeholder="Sua Mensagem"><br> <br>
 
-            <input type="submit" name="" id="btnCadastrarSalvar" value="Cadastrar">
+            <input type="submit" name="" id="btnCadastrarSalvar" value="Cadastrar" class="BtnCadastrar">
 
         </form>
 
     </div>
+
+    <table>
+        <caption>
+            <H2>Tabela</H2>
+        </caption>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Nascimento</th>
+                <th>Sexo</th>
+                <th>Ult. Atlz.</th>
+            </tr>
+        </thead>
+        <tbody id="tbodyResultados"></tbody>
+        <tfoot></tfoot>
+    </table>
 
 </body>
 
