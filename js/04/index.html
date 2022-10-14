@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="index.js"></script>
+</head>
+
+<style>
+
+</style>
+
+<body>
+
+    <div class="center-fixed">
+        <form id="frmCadastro">
+            <label for="txtNome">Nome</label><br>
+            <input type="text" id="txtNome"  placeholder="Nome"><br>
+
+            <label for="dtpDataNascimento">Data de Nascimento</label><br>
+            <input type="date" id="dtpDataNascimento" value="1990-08-29" required>
+
+            <fieldset>
+                <legend>Sexo</legend>
+                <input type="radio" name="genero" value="male" id="rdoMasculino" checked>
+                <label for="rdoMasculino">Masculino</label><br>
+
+                <input type="radio" name="genero" value="female" id="rdoFeminino">
+                <label for="rdoFeminino">Feminino</label>
+            </fieldset>
+
+            <label for="txtendereco">Endereço</label><br>
+            <input type="text" id="txtendereco" placeholder="Endereço"  ><br>
+
+            <label for="txtmsg">Sua Mensagem</label><br>
+            <input type="text" id="txtmsg" placeholder="Sua Mensagem"  ><br>            
+
+            <input type="submit" name="" id="btnCadastrarSalvar" value="Cadastrar">
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>
