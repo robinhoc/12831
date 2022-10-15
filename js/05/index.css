@@ -1,0 +1,55 @@
+html{
+    background-color: cadetblue;
+}
+.headerPage{
+    text-align: center;
+    background-color: cornflowerblue;
+    border: 2px solid white;
+    color: white;
+    border-radius: 10px;
+}
+.container{
+    border: 1px solid white;
+    background-color: cornflowerblue;
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+}
+.BtnCadastrar{
+    position: relative;
+    padding: 10px;
+    background-color: rgb(70, 197, 112);
+    border: 2px solid white;
+    color: white;
+    border-radius: 20px;
+    width: 20%;
+}
+.BordaRadio{
+    border: 0px;
+    padding-left: 0px;
+}
+
+input[type="text"] {
+    padding: 0 20px;
+    border-radius: 5px;
+  }
+
+  input[type="number"] {
+    padding: 0 20px;
+    border-radius: 5px;
+  }  
+
+  .tablayout {
+    table-layout: auto;
+    width: 100%;  
+  }
+
+  table {
+    border: 1px solid black;
+    border-radius: 10px;
+    text-align: center;
+  } 
+  
+  th,td {
+    border: 1px solid white;
+  }

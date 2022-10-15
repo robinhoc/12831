@@ -33,11 +33,11 @@ function adicionarOuAlterar(e) {
         var contatosLocalStorage = localStorage.getItem('contatos')
 
         if(contatos != null){
-            contatos = JSON.parse(contatosLocalStorage)    
+            contatos = JSON.parse(contatosLocalStorage) 
+            contatos.push(contato)   
         }
 
-        console.log(contatosLocalStorage)
-        contatos.push(contato)
+        
         localStorage.setItem('contatos', JSON.stringify(contatos))
 
     } catch (error) {

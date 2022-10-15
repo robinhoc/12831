@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de produto</title>
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="index.css">    
+</head>
+<body>
+    <h1 class="headerPage">Cadastro de produtos</h1>
+
+    <div class="container">
+        <form id="frmCadastro">
+            <label for="txtCod">Código</label><br>
+            <input type="text" id="txtCod" placeholder="Código"><br>
+
+            <label for="txtDescrisao">Descrição</label><br>
+            <input type="text" id="txtDescrisao" placeholder="Descrição"><br>
+
+            <fieldset class="BordaRadio">
+                <legend>Situação</legend>
+                <input type="radio" name="situacao" value="A" id="rdoAtivo" checked>
+                <label for="rdoAtivo">Ativo</label><br>
+
+                <input type="radio" name="situacao" value="I" id="rdoInativo">
+                <label for="rdoInativo">Inativo</label>
+            </fieldset>
+
+            <label for="txtEstoque">Estoque</label><br>
+            <input type="number" id="txtEstoque" placeholder="Estoque"><br><br>
+
+            <input type="submit" name="" id="btnCadastrarSalvar" value="Cadastrar" class="BtnCadastrar">
+
+        </form>
+
+    </div>
+
+    <table class="tablayout container">
+        <caption>
+            <H3 class="headerPage">Produtos Cadastrados</H3>
+        </caption>
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Descrição</th>
+                <th>Situação</th>
+                <th>Estoque</th>
+            </tr>
+        </thead>
+        <tbody id="tbodyResultados"></tbody>
+        <tfoot></tfoot>
+    </table>    
+
+</body>
+</html>
