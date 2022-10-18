@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jqury exercicios</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+</head>
+
+<script>
+    $(document).ready(function(){
+        $('#cbEstados').attr('disabled', 'disabled'); 
+        $("#cbNovidades").hide();  
+
+        $('#brasil').click(function(){
+            $("#cbEstados").hide(); 
+        })   
+        
+        $('#estrangeiro').click(function(){
+            $("#cbEstados").show(); 
+        })   
+        
+        if ($("#novidades").is(":checked")) {
+            $('#cbNovidades').show();
+        } else {
+            $('#cbNovidades').hide();     
+        }   
+    })    
+</script>
+
+<body>
+    <h1>Contato</h1>  
+    
+    <label for="txtnome">Nome Completo:</label>
+    <input type="text" id="txtnome"><br><br> 
+
+    <label for="txtemail">Email valido:</label>
+    <input type="email" id="txtemail"><br><br>  
+
+    <div>
+        <fieldset class="BordaRadio">
+            <label for="rdoAtivo"></label>
+                Brasileiro<input type="radio" name="nacionalidade" value="B" id="brasil" checked>
+            </label><br>
+
+            <label for="rdoInativo"></label>
+                Estrangeiro<input type="radio" name="nacionalidade" value="E" id="estrangeiro">
+            </label>
+        </fieldset><br>  
+    </div>
+    
+    <div id="cbEstados">
+        <label>Estado:</label>
+        <select name="estados">
+            <option value="0" selected>Selecione</option>
+            <option value="PR">Parána</option>
+            <option value="SC">Santa Catarina</option>
+            <option value="RS">Rio Grande do Sul</option>
+        </select><br><br>      
+    </div>
+    
+    <label>
+        <input type="checkbox" id="novidades" value="S">Receber novidades por email
+    </label><br><br>     
+    
+    <div id="cbNovidades">
+        <label>
+            <input type="checkbox" name="cbTodos" value="cbT">Selecionar todas
+        </label><br> 
+        <label>
+            <input type="checkbox" name="cbEsportes" value="cbE">Esportes
+        </label><br> 
+        <label>
+            <input type="checkbox" name="cbCinema" value="cbC">Cinema
+        </label><br><br>    
+    </div>    
+    
+    <button id="btnEnvio">Enviar</button>
+</body>
+</html>
