@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+</head>
+
+<style>
+    .alteradoPeloClick{
+        background-color: yellow;
+    }
+</style>
+
+<script>
+    $(document).ready(function(){
+        $('#btnopa').click(function(){
+            alert('teste')
+        })
+
+        $('.btnopa2').dblclick(function(){
+            $(this).addClass("alteradoPeloClick")
+        })     
+        
+        $('#focoteste').click(function(){
+            //$(this).css("background-color", "#cccccc")
+            $(this).css("background-color", "#cccccc")
+        })  
+        
+        $('#fazcaptura').click(function(){
+            var value = $('#txtcaptura').val()
+            alert(value)
+        })            
+    })
+</script>
+
+<body>
+  
+    <button id="btnopa">Opa</button>
+
+    <button class="btnopa2">Opa 2</button>
+
+    <p id="focoteste">teste de foco</p>
+
+    <input id="txtcaptura" type="text" value="" placeholder="informar o valor">
+
+    <button id="fazcaptura">Capturar</button>
+</body>
+</html>
