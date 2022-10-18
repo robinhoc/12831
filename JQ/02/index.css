@@ -1,0 +1,22 @@
+.warning{
+    border: 1px solid red;  
+  }
+
+  .BtnCadastrar{
+  position: relative;
+  padding: 10px;
+  background-color: rgb(70, 197, 112);
+  border: 2px solid white;
+  color: white;
+  border-radius: 20px;
+  width: 40%;
+}    
+.BordaRadio{
+  border: 0px;
+  padding-left: 0px;
+}
+.formulario{
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 10px;
+}
