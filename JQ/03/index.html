@@ -1,0 +1,93 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>dsadasdas</title>
+    <html>
+
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="index.css">
+        <script src="index.js"></script>
+    </head>
+
+<body>
+    <form id="form">
+        <h2>Contato</h2>
+        <fieldset>
+
+            <div>
+                <label for="nome">Nome Completo:</label>
+                <input type="text" id="nome" name="campoNome" class="nome">
+            </div>
+
+
+            <div>
+                <label for="email">Email Valido:</label>
+                <input type="text" id="email" name="campoEmail" class="email">
+            </div>
+
+
+            <div id="nacionalidade">
+                <div id="br">
+                    <label for="brasileiro">Brasileiro:</label>
+                    <input type="radio" id="brasileiro" name="nacionalidade" value="brasileiro">
+                </div>
+                <div id="es">
+                    <label for="estrangeiro">Estrangeiro:</label>
+                    <input type="radio" id="estrangeiro" name="nacionalidade" value="estrangeiro">
+                </div>
+            </div>
+
+            <div>
+                <label for="campoEstado">Estado:</label>
+                <select name="campoEstado" id="estado">
+                    <option value="">Selecione...</option>
+                    <option value="2">Distrito Federal</option>
+                    <option value="3">Ceara</option>
+                    <option value="4">Amazonas</option>
+                    <option value="5">Para</option>
+                    <option value="6">Mato Grosso</option>
+                    <option value="7">Minas Gerais</option>
+                    <option value="8">Bahia</option>
+                    <option value="9">Goias</option>
+                    <option value="10">Parana</option>
+                    <option value="11">Sao Paulo</option>
+                    <option value="12">Rio de Janeiro</option>
+                    <option value="13">Santa Catarina</option>
+                    <option value="14">Sergipe</option>
+                    <option value="15">Tocantins</option>
+                    <option value="16">Rio Grande do Norte</option>
+                    <option value="17">Rio Grande do Sul</option>
+                    <option value="18">Rondonia</option>
+                    <option value="19">Roraima</option>
+                    <option value="20">Pernambuco</option>
+                    <option value="21">Piaui</option>
+                    <option value="22">Paraiba</option>
+                    <option value="23">Espirito Santo</option>
+                    <option value="24">Goias</option>
+                    <option value="25">Maranhao</option>
+                    <option value="26">Mato Grosso do Sul</option>
+                    <option value="27">Mato Grosso</option>
+                    <option value="28">Minas Gerais</option>
+                </select>
+            </div>
+            <div id="checkboxi">
+                <input type="checkbox" name="receberemail" value="receberemail" id="tudo" /> Receber novidades por
+                email<br />
+            </div>
+            <div id="selecionados">
+                <input type="checkbox" name="selectall" value="selecionartodos" id="todos" /> Selecionar Todos<br />
+                <input type="checkbox" name="sumir" value="esportes" id="all" /> Esportes<br />
+                <input type="checkbox" name="sumir" value="cinema" id="all" /> Cinema<br />
+                <input type="checkbox" name="sumir" value="culinaria" id="all" /> Culinaria<br />
+            </div>
+            <input type="submit" id="enviar" value="Enviar" />
+        </fieldset>
+    </form>
+
+</body>
+
+</html>
