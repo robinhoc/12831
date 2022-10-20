@@ -1,6 +1,5 @@
-var sTipoEvento = 'I';
-
 $(function () {
+    var nposicaoAlterar = -1;
     var seq = 0;
 
     ListarContatos();
@@ -16,39 +15,46 @@ $(function () {
     })
 
     function AddUpdate(e) {
-        var campoNome = $('#txtNome').val();
-        var campoIdade = $('#txtIdade').val();
-        var campoTelefone = $('#txtTelefone').val();
 
         var contato = {
-            nome: campoNome,
-            idade: campoIdade,
-            telefone: campoTelefone,
+            nome: $('#txtNome').val(),
+            idade: $('#txtIdade').val(),
+            telefone: $('#txtTelefone').val(),
             id: seq = seq + 1
         }
 
-        try {
-    
+        if(nposicaoAlterar < 0){
             var listacontatos = []
             var contatosLocalStorage = localStorage.getItem('listacontatos')
-    
+
             if(contatosLocalStorage != null){
                 listacontatos = JSON.parse(contatosLocalStorage)  
             }
 
             listacontatos.push(contato)  
-    
+
             localStorage.setItem('listacontatos', JSON.stringify(listacontatos))
-    
-        } catch (error) {
-    
-            alert(error)
-    
+        }
+
+        if(nposicaoAlterar > -1){
+            var contatosLocalStorage = localStorage.getItem('listacontatos')
+
+            contatosLocalStorage[nposicaoAlterar] = {
+                nome: $("#txtNome").val(),
+                idade: $("#txtIdade").val(),
+                telefone: $("#txtTelefone").val(),
+                id: 10
+            };
+
+            console.log(JSON.stringify(contatosLocalStorage));
+
+            localStorage.setItem('listacontatos', JSON.stringify(contatosLocalStorage))
         }        
+         
     }
 
     function ListarContatos(){
-        sTipoEvento = 'I';
+        nposicaoAlterar = -1;
 
         var contatosLocalStorage = localStorage.getItem('listacontatos')
     
@@ -80,7 +86,6 @@ $(function () {
     }
 
     $(document).on('click', '#btnExcluir', function () {
-        sTipoEvento = 'D';
 
         var posicao = parseInt($(this).attr("alt"));
 
@@ -98,20 +103,16 @@ $(function () {
 
 
     $(document).on('click', '#btnEditar', function () {
-        sTipoEvento = 'U';
 
-        var posicao = parseInt($(this).attr("alt"));
-
-        //posicaoParaRemover = posicao;
+        nposicaoAlterar = parseInt($(this).attr("alt"));
 
         var contatosStorage = JSON.parse(localStorage.getItem("listacontatos"));
 
-        var contato = contatosStorage[posicao];
+        var contato = contatosStorage[nposicaoAlterar];
 
         $("#txtNome").val(contato.nome);
         $("#txtIdade").val(contato.idade);
         $("#txtTelefone").val(contato.telefone);
-
     });
    
 })
