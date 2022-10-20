@@ -1,3 +1,5 @@
+var sTipoEvento = 'I';
+
 $(function () {
     var seq = 0;
 
@@ -46,6 +48,8 @@ $(function () {
     }
 
     function ListarContatos(){
+        sTipoEvento = 'I';
+
         var contatosLocalStorage = localStorage.getItem('listacontatos')
     
         if(contatosLocalStorage == null){
@@ -70,41 +74,49 @@ $(function () {
     
             tbody.innerHTML += '<tr><th>'+ nome +'</th>'+
             '<th>'+ idade +'</th>'+
-            '<th>'+ telefone +'</th>  <th><button id="btnalterar" alt="'+ id +'" type="button" class="btn btn-warning btn-sm">Alterar</button>'+
-            '<button id="btnexcluir" alt="'+ id +'"  type="button" class="btn btn-danger btn-sm">Excluir</button> </th>  </tr>'
+            '<th>'+ telefone +'</th>  <th><button id="btnEditar" alt="'+ index +'" type="button" class="btn btn-warning btn-sm">Alterar</button>'+
+            '<button id="btnExcluir" alt="'+ index +'"  type="button" class="btn btn-danger btn-sm">Excluir</button> </th>  </tr>'
         }        
     }
+
+    $(document).on('click', '#btnExcluir', function () {
+        sTipoEvento = 'D';
+
+        var posicao = parseInt($(this).attr("alt"));
+
+        var contatosStorage = JSON.parse(localStorage.getItem("listacontatos"));
+
+        contatosStorage.splice(posicao, 1);
+        
+        localStorage.setItem("listacontatos", JSON.stringify(contatosStorage))
+
+        alert('Contato excluído!');
+
+        ListarContatos();
+
+    });
+
+
+    $(document).on('click', '#btnEditar', function () {
+        sTipoEvento = 'U';
+
+        var posicao = parseInt($(this).attr("alt"));
+
+        //posicaoParaRemover = posicao;
+
+        var contatosStorage = JSON.parse(localStorage.getItem("listacontatos"));
+
+        var contato = contatosStorage[posicao];
+
+        $("#txtNome").val(contato.nome);
+        $("#txtIdade").val(contato.idade);
+        $("#txtTelefone").val(contato.telefone);
+
+    });
+   
 })
 
 /*
-
-Skip to content
-
-    Pricing
-
-Sign in
-Sign up
-valdairelaborata /
-12831
-Public
-
-Code
-Issues
-Pull requests 1
-Actions
-Projects
-Security
-
-    Insights
-
-12831/projeto-final/index.js
-@valdairelaborata
-valdairelaborata projeto
-Latest commit 8168b1c 5 minutes ago
-History
-1 contributor
-138 lines (91 sloc) 3.3 KB
-var posicaoParaRemover = -1;
 
 $(function () {
     $("#btnSalvar").click(function () {
