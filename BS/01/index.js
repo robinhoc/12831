@@ -1,28 +1,30 @@
-$(document).ready(function(){
-    document.getElementById('frmCadastro').addEventListener('submit', AddUpdate);
+$(function () {
+    var seq = 0;
 
-    lisctarContados();
+    ListarContatos();
 
-    $("#form").submit(function () {
-
+    $("#btnSalvar").click(function () {
         AddUpdate();
-        lisctarContados();
 
-    });   
-    
-    function AddUpdate(e){
+        ListarContatos();
+
+        $("input").val('');
+
+        $("#txtNome").focus();
+    })
+
+    function AddUpdate(e) {
         var campoNome = $('#txtNome').val();
         var campoIdade = $('#txtIdade').val();
         var campoTelefone = $('#txtTelefone').val();
 
-        console.log(campoNome.value)
-
         var contato = {
-            nome: campoNome.value,
-            idade: campoIdade.value,
-            telefone: campoTelefone.value
+            nome: campoNome,
+            idade: campoIdade,
+            telefone: campoTelefone,
+            id: seq = seq + 1
         }
-    
+
         try {
     
             var listacontatos = []
@@ -31,7 +33,7 @@ $(document).ready(function(){
             if(contatosLocalStorage != null){
                 listacontatos = JSON.parse(contatosLocalStorage)  
             }
-    
+
             listacontatos.push(contato)  
     
             localStorage.setItem('listacontatos', JSON.stringify(listacontatos))
@@ -40,24 +42,22 @@ $(document).ready(function(){
     
             alert(error)
     
-        }
-    
-        montarLista()
-    
-        //document.getElementById('frmCadastro').reset() //limpar form
-    
-        e.preventDefault();
+        }        
     }
 
-    function lisctarContados(){
-        var contatosLocalStorage = localStorage.getItem('contatos')
+    function ListarContatos(){
+        var contatosLocalStorage = localStorage.getItem('listacontatos')
     
         if(contatosLocalStorage == null){
+            seq = 0;
             return; 
         }
     
         var contatos = []
         contatos = JSON.parse(contatosLocalStorage)
+
+        seq = contatos.length;
+
         var tbody = document.getElementById('tbodyResultados');
     
         tbody.innerHTML = ''
@@ -66,10 +66,197 @@ $(document).ready(function(){
             var nome = contatos[index].nome;
             var idade = contatos[index].idade;
             var telefone = contatos[index].telefone;
+            var id = contatos[index].id;
     
             tbody.innerHTML += '<tr><th>'+ nome +'</th>'+
             '<th>'+ idade +'</th>'+
-            '<th>'+ telefone +'</th></tr>'
-        }
-    }    
+            '<th>'+ telefone +'</th>  <th><button id="btnalterar" alt="'+ id +'" type="button" class="btn btn-warning btn-sm">Alterar</button>'+
+            '<button id="btnexcluir" alt="'+ id +'"  type="button" class="btn btn-danger btn-sm">Excluir</button> </th>  </tr>'
+        }        
+    }
 })
+
+/*
+
+Skip to content
+
+    Pricing
+
+Sign in
+Sign up
+valdairelaborata /
+12831
+Public
+
+Code
+Issues
+Pull requests 1
+Actions
+Projects
+Security
+
+    Insights
+
+12831/projeto-final/index.js
+@valdairelaborata
+valdairelaborata projeto
+Latest commit 8168b1c 5 minutes ago
+History
+1 contributor
+138 lines (91 sloc) 3.3 KB
+var posicaoParaRemover = -1;
+
+$(function () {
+    $("#btnSalvar").click(function () {
+
+
+        adicionarContato();
+
+        $('input').val('');
+        $('#txtNome').focus();
+    });
+
+    Listar();
+
+    $(document).on('click', '#btnExcluir', function () {
+
+        var posicao = parseInt($(this).attr("alt"));
+
+        var contatosStorage = JSON.parse(localStorage.getItem("contatos"));
+        contatosStorage.splice(posicao, 1);
+        
+        localStorage.setItem("contatos", JSON.stringify(contatosStorage))
+
+        alert('Contato excluído!');
+
+        Listar();
+
+    });
+
+
+    $(document).on('click', '#btnEditar', function () {
+
+
+
+
+        // $('#btnAdd').hide();
+
+        var posicao = parseInt($(this).attr("alt"));
+
+        //posicaoParaRemover = posicao;
+
+        var contatosStorage = JSON.parse(localStorage.getItem("contatos"));
+
+        var contato = contatosStorage[posicao];
+
+         $("#txtNome").val(contato.nome);
+         $("#txtIdade").val(contato.idade);
+         $("#txtTelefone").val(contato.telefone);
+         // $('#btnSave').show();
+ 
+     });
+ });
+ 
+ function adicionarContato() {
+ 
+     if ($.trim($('#txtNome').val()) == '') {
+         alert('Favor informar o nome!');
+         $('#txtNome').focus();
+         return false;
+     }
+     if ($.trim($('#txtIdade').val()) == '') {
+         alert('Favor informar a idade!');
+         $('#txtIdade').focus();
+         return false;
+     }
+     if ($.trim($('#txtTelefone').val()) == '') {
+         alert('Favor informar o telefone!');
+         $('#txtTelefone').focus();
+         return false;
+     }
+ 
+ 
+     var contato = {
+         nome: $("#txtNome").val(),
+         idade: $("#txtIdade").val(),
+         telefone: $("#txtTelefone").val()
+     };
+ 
+ 
+     var contatosStorage = JSON.parse(localStorage.getItem("contatos"));
+ 
+     //console.log('Valores atuais no localstorage ' + JSON.stringify(contatosStorage));
+ 
+     if (contatosStorage == null) {
+         contatosStorage = [];
+         contatosStorage.push(contato);
+     }
+     else {
+         if (posicaoParaRemover > -1) {
+ 
+             contatosStorage[posicaoParaRemover] = {
+                 nome: $("#txtNome").val(),
+                 idade: $("#txtIdade").val(),
+                 telefone: $("#txtTelefone").val()
+             };
+         }
+         else {
+             contatosStorage.push(contato);
+         }
+     }
+ 
+     //console.log('Com o objeto atual adicionado! ' + JSON.stringify(contatosStorage));
+     localStorage.setItem("contatos", JSON.stringify(contatosStorage))
+ 
+ 
+     // $('#tblContatos tr:not(:first)').remove();
+ 
+     //contatosStorage = JSON.parse(localStorage.getItem("contatos"));
+ 
+     //console.log(contatosStorage[0]);
+ 
+     Listar();
+ 
+     posicaoParaRemover = -1;
+ 
+ }
+ 
+ function Listar() {
+     var contatosStorage = JSON.parse(localStorage.getItem("contatos"));
+ 
+     for (var posicao in contatosStorage) {
+ 
+         console.log(posicao);
+         var contato = contatosStorage[posicao];
+ 
+         $('#tblContatos tr:last').after('<tr><td>' + contato.nome + '</td><td>' +
+             contato.idade + '</td><td>' + contato.telefone + '</td><td>' +
+             '<button id="btnExcluir" alt="' + posicao +
+             '" class="btn btn-danger btn-sm">Excluir</button>   <button id="btnEditar" alt="'
+             + posicao + '" class="btn btn-info btn-sm">Editar</button>' +
+             '</td></tr>');
+     }
+ }
+ Footer
+ © 2022 GitHub, Inc.
+ Footer navigation
+ 
+     Terms
+     Privacy
+     Security
+     Status
+     Docs
+     Contact GitHub
+     Pricing
+     API
+     Training
+     Blog
+     About
+ 
+ 12831/bs at projeto · valdairelaborata/12831 · GitHub
+ 12831/jq/03 at projeto · valdairelaborata/12831 · GitHub
+ 12831/jq at projeto · valdairelaborata/12831 · GitHub
+ 12831/jq/01 at projeto · valdairelaborata/12831 · GitHub
+ 12831/index.js at projeto · valdairelaborata/12831 · GitHub
+*/
+
